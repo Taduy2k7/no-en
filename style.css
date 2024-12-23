@@ -1,0 +1,39 @@
+body {
+    display: flex;
+    flex-direction: column; /* Căn theo trục dọc */
+    justify-content: center; /* Căn giữa theo chiều dọc */
+    align-items: center; /* Căn giữa theo chiều ngang */
+    height: 100vh; /* Chiều cao khớp với toàn màn hình */
+    background-color: #FFD1DC; /* Màu hồng phấn */
+    font-family: Arial, sans-serif;
+    margin: 0; /* Loại bỏ margin mặc định */
+    text-align: center;
+  }
+
+  
+  #btn {
+    position: relative;
+    display: inline-block;
+    right: 3%
+  }
+  
+  button {
+    padding: 15px 30px;
+    font-size: 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s, opacity 0.3s, font-size 0.3s;
+  }
+  
+  #yes {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  #no {
+    background-color: #f44336;
+    color: white;
+    position: absolute;
+  }
+  
