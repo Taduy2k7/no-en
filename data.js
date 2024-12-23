@@ -5,7 +5,7 @@ const maxMoves = 10; // Số lần tối đa nút "No" di chuyển
 
 // Chuyển hướng khi nhấn "Yes"
 yesButton.addEventListener('click', () => {
-  window.location.href = 'tab-1.html'; // Thay bằng trang bạn muốn chuyển đến
+  window.location.href = 'tab/tab-1.html'; // Thay bằng trang bạn muốn chuyển đến
 });
 
 // Xử lý khi hover vào "No"
