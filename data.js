@@ -5,7 +5,7 @@ const maxMoves = 10; // Số lần tối đa nút "No" di chuyển
 
 // Chuyển hướng khi nhấn "Yes"
 yesButton.addEventListener('click', () => {
-  window.location.href = 'https://www.youtube.com/watch?v=TmwgIcCU0GE'; // Thay bằng trang bạn muốn chuyển đến
+  window.location.href = 'https://taduy2k7.github.io/noel/'; // Thay bằng trang bạn muốn chuyển đến
 });
 
 // Xử lý khi hover vào "No"
