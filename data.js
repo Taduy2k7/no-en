@@ -1,11 +1,13 @@
 const yesButton = document.getElementById("yesButton");
 const noButton = document.getElementById("noButton");
 const popupContainer = document.getElementById("popupContainer");
+const interactionBlocker = document.getElementById("interactionBlocker");
 
 let noClickCount = 0; // Số lần hover vào nút No tối đa là 5 lần.
 
 yesButton.addEventListener("click", () => {
   popupContainer.classList.remove("hidden");
+  interactionBlocker.classList.add("active"); // Bật chặn tương tác
 });
 
 noButton.addEventListener("mouseover", () => {
@@ -24,7 +26,8 @@ noButton.addEventListener("mouseover", () => {
   }
 });
 
-// Ẩn popup khi nhấn vào vùng nền mờ
+// Ẩn popup và tắt chặn tương tác khi nhấn vào vùng mờ
 popupContainer.addEventListener("click", () => {
   popupContainer.classList.add("hidden");
+  interactionBlocker.classList.remove("active"); // Tắt chặn tương tác
 });
