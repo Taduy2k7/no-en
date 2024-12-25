@@ -1,31 +1,30 @@
-const yesButton = document.getElementById('yes');
-const noButton = document.getElementById('no');
-let counter = 0; // Đếm số lần nút "No" di chuyển
-const maxMoves = 10; // Số lần tối đa nút "No" di chuyển
+const yesButton = document.getElementById("yesButton");
+const noButton = document.getElementById("noButton");
+const popup = document.getElementById("popup");
+const closePopup = document.getElementById("closePopup");
 
-// Chuyển hướng khi nhấn "Yes"
-yesButton.addEventListener('click', () => {
-  window.location.href = 'https://taduy2k7.github.io/noel/'; // Thay bằng trang bạn muốn chuyển đến
+let noClickCount = 0; // Số lần hover vào nút No tối đa là 5 lần.
+
+yesButton.addEventListener("click", () => {
+  popup.classList.remove("hidden");
 });
 
-// Xử lý khi hover vào "No"
-noButton.addEventListener('mouseover', () => {
-  if (counter < maxMoves) {
-    // Di chuyển nút "No" tới vị trí mới
-    const x = Math.random() * window.innerWidth * 0.3; // Giới hạn vị trí trong màn hình
-    const y = Math.random() * window.innerHeight * 0.3;
+closePopup.addEventListener("click", () => {
+  popup.classList.add("hidden");
+});
 
-    noButton.style.left = `${x}px`;
-    noButton.style.top = `${y}px`;
+noButton.addEventListener("mouseover", () => {
+  if (noClickCount < 5) {
+    const randomX = Math.random() * window.innerWidth - 100;
+    const randomY = Math.random() * window.innerHeight - 50;
 
-    // Giảm kích thước và độ mờ
-    const scale = 1 - (counter + 1) * 0.05; // Giảm kích thước
-    noButton.style.transform = `scale(${scale})`;
-    noButton.style.opacity = 1 - (counter + 1) * 0.1; // Mờ dần
+    noButton.style.position = "absolute";
+    noButton.style.left = `${Math.max(0, randomX)}px`;
+    noButton.style.top = `${Math.max(0, randomY)}px`;
 
-    counter++;
-  } else {
-    // Nếu đã di chuyển maxMoves lần thì không làm gì thêm
-    noButton.style.pointerEvents = 'none'; // Không cho hover nữa
+    noButton.style.transform = `scale(${1 - noClickCount * 0.2})`;
+    noButton.style.opacity = `${1 - noClickCount * 0.2}`;
+
+    noClickCount++;
   }
 });
