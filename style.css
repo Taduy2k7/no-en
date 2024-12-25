@@ -31,10 +31,6 @@ button {
   color: white;
 }
 
-#noButton.moving {
-  transition: all 0.3s ease;
-}
-
 .popup {
   position: fixed;
   top: 50%;
@@ -51,10 +47,43 @@ button {
   display: none;
 }
 
+/* Cây thông */
 .tree {
-  color: green;
-  font-family: monospace;
-  margin-bottom: 10px;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.layer {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 70px solid green;
+}
+
+.layer:nth-child(1) {
+  top: 0;
+}
+
+.layer:nth-child(2) {
+  top: 50px;
+  border-bottom: 90px solid green;
+}
+
+.layer:nth-child(3) {
+  top: 100px;
+  border-bottom: 110px solid green;
+}
+
+.trunk {
+  position: absolute;
+  bottom: 0;
+  left: 35px;
+  width: 30px;
+  height: 50px;
+  background-color: #8b4513;
 }
 
 .message {
