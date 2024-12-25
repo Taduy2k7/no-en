@@ -35,13 +35,17 @@ noButton.addEventListener("mouseover", () => {
   }
 });
 
-// Ngăn đóng popup bằng chuột phải và các phím như ESC
-document.addEventListener("contextmenu", (e) => {
-  e.preventDefault();
+// Tắt popup khi nhấn ESC
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    popupContainer.classList.add("hidden");
+
+    // Mở khóa các thao tác bên ngoài
+    document.body.style.pointerEvents = "all";
+  }
 });
 
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" || e.key === "F5") {
-    e.preventDefault();
-  }
+// Ngăn đóng popup bằng chuột phải
+document.addEventListener("contextmenu", (e) => {
+  e.preventDefault();
 });
