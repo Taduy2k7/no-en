@@ -1,33 +1,24 @@
 const yesButton = document.getElementById("yesButton");
 const noButton = document.getElementById("noButton");
 const popupContainer = document.getElementById("popupContainer");
-const interactionBlocker = document.getElementById("interactionBlocker");
 
-let noClickCount = 0; // Số lần hover vào nút No tối đa là 5 lần.
-
+// Hiện popup và khóa các thao tác bên ngoài
 yesButton.addEventListener("click", () => {
   popupContainer.classList.remove("hidden");
-  interactionBlocker.classList.add("active"); // Bật chặn tương tác
+
+  // Khóa tất cả các sự kiện nhấp chuột, chuột phải và cảm ứng trên body
+  document.body.style.pointerEvents = "none";
+  popupContainer.style.pointerEvents = "all"; // Chỉ cho phép tương tác với popup
 });
 
-noButton.addEventListener("mouseover", () => {
-  if (noClickCount < 5) {
-    const randomX = Math.random() * window.innerWidth - 100;
-    const randomY = Math.random() * window.innerHeight - 50;
+// Tắt chuột phải và các phím nhấn
+document.addEventListener("contextmenu", (e) => {
+  e.preventDefault();
+});
 
-    noButton.style.position = "absolute";
-    noButton.style.left = `${Math.max(0, randomX)}px`;
-    noButton.style.top = `${Math.max(0, randomY)}px`;
-
-    noButton.style.transform = `scale(${1 - noClickCount * 0.2})`;
-    noButton.style.opacity = `${1 - noClickCount * 0.2}`;
-
-    noClickCount++;
+document.addEventListener("keydown", (e) => {
+  // Ngăn đóng popup bằng các phím như ESC hoặc F5
+  if (e.key === "Escape" || e.key === "F5") {
+    e.preventDefault();
   }
-});
-
-// Ẩn popup và tắt chặn tương tác khi nhấn vào vùng mờ
-popupContainer.addEventListener("click", () => {
-  popupContainer.classList.add("hidden");
-  interactionBlocker.classList.remove("active"); // Tắt chặn tương tác
 });
