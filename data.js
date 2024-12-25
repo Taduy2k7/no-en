@@ -1,16 +1,11 @@
 const yesButton = document.getElementById("yesButton");
 const noButton = document.getElementById("noButton");
-const popup = document.getElementById("popup");
-const closePopup = document.getElementById("closePopup");
+const popupContainer = document.getElementById("popupContainer");
 
 let noClickCount = 0; // Số lần hover vào nút No tối đa là 5 lần.
 
 yesButton.addEventListener("click", () => {
-  popup.classList.remove("hidden");
-});
-
-closePopup.addEventListener("click", () => {
-  popup.classList.add("hidden");
+  popupContainer.classList.remove("hidden");
 });
 
 noButton.addEventListener("mouseover", () => {
@@ -27,4 +22,9 @@ noButton.addEventListener("mouseover", () => {
 
     noClickCount++;
   }
+});
+
+// Ẩn popup khi nhấn vào vùng nền mờ
+popupContainer.addEventListener("click", () => {
+  popupContainer.classList.add("hidden");
 });
