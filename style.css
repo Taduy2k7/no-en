@@ -101,3 +101,19 @@ button {
   color: #d2691e;
   margin-bottom: 10px;
 }
+
+/* Lớp chặn tương tác */
+#interactionBlocker {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent; /* Không hiển thị nhưng chặn tương tác */
+  z-index: 999; /* Cao hơn tất cả */
+  pointer-events: none; /* Mặc định không chặn */
+}
+
+#interactionBlocker.active {
+  pointer-events: all; /* Bật chặn tương tác */
+}
