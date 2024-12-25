@@ -3,16 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giáng Sinh</title>
   <link rel="stylesheet" href="style.css">
-  <title>Yes and No Buttons</title>
 </head>
 <body>
-  <h1 id="tieu-de">Do you love me?</h1>
-<br>
-  <span id="btn">
-    <button id="yes">Yes</button>
-    <button id="no">No</button>
-  </span>
+  <div class="container">
+    <button id="yesButton">Yes</button>
+    <button id="noButton">No</button>
+  </div>
+
+  <div id="popup" class="popup hidden">
+    <div class="tree">
+      <pre>
+          *
+         ***
+        *****
+       *******
+      *********
+          |
+      </pre>
+    </div>
+    <div class="message">I Love You Too - Giáng sinh an lành!</div>
+    <button id="closePopup">Close</button>
+  </div>
 
   <script src="data.js"></script>
 </body>
